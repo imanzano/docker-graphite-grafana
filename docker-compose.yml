@@ -1,0 +1,16 @@
+version: '2'
+services:
+  graphite:
+    image: nickstenning/graphite
+    ports:
+      - "80:80"
+      - "2003:2003"
+      - "2004:2004"
+      - "7002:7002"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - graphite
